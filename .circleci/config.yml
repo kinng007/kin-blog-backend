@@ -24,7 +24,7 @@ jobs:
           resource-file-path: ./k8s/deploy.yml
           watch-timeout: "5m"
       - run:
-          command: kubectl rollout restart deployment/blog-backend
+          command: kubectl rollout restart deployment/blog-backend -n blog-backend-kinng007
           name: restart rollout
 
 workflows:
