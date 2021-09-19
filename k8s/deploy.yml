@@ -1,3 +1,13 @@
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: env-secret
+type: Opaque
+data:
+  .env: CREDENTIAL_ENV
+
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -28,6 +38,14 @@ spec:
           image: kinng007/kin-blog-backend:latest
           ports:
             - containerPort: 3000
+          volumeMounts:
+            - name: env
+              mountPath: "/etc/app"
+      volumes:
+        - name: env
+          secret:
+            secretName: env-secret
+            defaultMode: 0444
 
 ---
 apiVersion: v1
