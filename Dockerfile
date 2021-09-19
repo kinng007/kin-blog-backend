@@ -9,6 +9,9 @@ WORKDIR /usr/src/app
 COPY package.json /usr/src/app
 # installing the dependencies into the container
 RUN npm install
+# Generate the build of the application
+RUN npm run build
+RUN ls -ltr
 #copying the source code of Application into the container dir
 COPY . /usr/src/app
 #container exposed network port number
