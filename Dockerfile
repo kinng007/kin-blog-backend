@@ -14,4 +14,4 @@ COPY . /usr/src/app
 #container exposed network port number
 EXPOSE 3000
 #command to run within the container
-CMD ['node', 'index.js']
+ENTRYPOINT node index.js
