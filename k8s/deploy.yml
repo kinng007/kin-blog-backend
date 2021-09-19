@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: blog-backend
+
+spec:
+  replicas: 5
+
+  selector:
+    matchLabels:
+      app: blog-backend
+
+  minReadySeconds: 10
+
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
+
+  template:
+    metadata:
+      labels:
+        app: blog-backend
+    spec:
+      containers:
+        - name: blog-backend-ctr
+          image: kinng007/kin-blog-backend:latest
+          ports:
+            - containerPort: 3000
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: blog-backend-svc
+
+spec:
+  type: NodePort
+
+  ports:
+    - port: 3000
+      protocol: TCP
+
+  selector:
+    app: blog-backend
