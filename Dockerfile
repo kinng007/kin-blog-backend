@@ -5,16 +5,14 @@ FROM node:latest
 RUN mkdir -p /usr/src/app
 #setting working directory in the container
 WORKDIR /usr/src/app
-#copying the package.json file(contains dependencies) from project source dir to container dir
-COPY package.json /usr/src/app
+#copying the source code of Application into the container dir
+COPY . /usr/src/app
 # installing the dependencies into the container
 RUN npm install
 # Generate the build of the application
 RUN npm run build
 RUN ls -ltr
-#copying the source code of Application into the container dir
-COPY . /usr/src/app
 #container exposed network port number
 EXPOSE 3000
 #command to run within the container
-ENTRYPOINT node index.js
+ENTRYPOINT node /usr/src/app/index.js
