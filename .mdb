@@ -1,0 +1,12 @@
+{
+  "projectName": "blog-api",
+  "meta": {
+    "starter": "blog-api",
+    "type": "backend"
+  },
+  "hash": "a8e93a91",
+  "backend": {
+    "platform": "node12"
+  },
+  "domain": "kinblog-api.mdbgo.io"
+}
