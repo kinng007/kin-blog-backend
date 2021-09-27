@@ -28,7 +28,7 @@ jobs:
           name: restart rollout
 
 workflows:
-  build-and-deploy-into-k8s:
+  build-and-deploy:
     jobs:
       - docker/publish:
           image: $DOCKER_LOGIN/kin-blog-backend
