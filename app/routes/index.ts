@@ -12,7 +12,7 @@ var corsOptions = {
   origin: [
     "http://localhost:4200",
     "https://kinblog.mdbgo.io",
-    "https://blog-frontend-svc-blog-ui-kinng007.cloud.okteto.net",
+    "https://blog-kinshukmajee.cloud.okteto.net",
   ],
   optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
 };
