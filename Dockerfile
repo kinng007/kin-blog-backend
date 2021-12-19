@@ -11,7 +11,7 @@ COPY . /usr/src/app
 RUN npm install
 # Generate the build of the application
 RUN npm run build
-RUN ls -ltr
+#RUN ls -ltr
 #container exposed network port number
 EXPOSE 3000
 #command to run within the container
